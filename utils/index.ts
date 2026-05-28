@@ -1384,7 +1384,11 @@ export function normalizePoint(p: any): HeatPoint {
   // Fretadão usa campo "unidade" para identificar a empresa
   const rawUnidade = p.unidade || p.grupo || "";
   const area = rawUnidade
-    ? rawUnidade.replace(/\s*[-–]\s*RASTREAMENTO FRETAD[ÃA]O.*/i, "").replace(/\s*\(RASTREAMENTO\)/i, "").trim()
+    ? rawUnidade
+        .replace(/\s*[-–]\s*RASTREAMENTO.*/i, "")
+        .replace(/\s*[-–]\s*Rastreamento.*/i, "")
+        .replace(/\s*\(RASTREAMENTO\).*/i, "")
+        .trim()
     : (PLATE_TO_AREA[plate] || "Sem area");
   const km = p.km_rodado_mes ? parseFloat(p.km_rodado_mes) : undefined;
   return {
