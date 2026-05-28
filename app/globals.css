@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sidebar-bg: #0a1628;
+  --sidebar-border: #132035;
+  --sidebar-hover: #152540;
+  --sidebar-active: #1a2e4a;
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --border: #e2e8f0;
+  --text-1: #0f172a;
+  --text-2: #475569;
+  --text-3: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: #f1f5f9;
+  color: var(--text-1);
+}
+
+#__next, main {
+  height: 100%;
+}
+
+/* Leaflet fixes */
+.leaflet-container {
+  font-family: 'DM Sans', sans-serif;
+  z-index: 0;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Sidebar scrollbar */
+.sb-scroll::-webkit-scrollbar-thumb {
+  background: #1e3557;
+}
+
+/* Animations */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 0.8s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
