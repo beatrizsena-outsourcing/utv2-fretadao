@@ -23,7 +23,7 @@ export async function fetchHeatmapData(
   qs.set("year", params.year || String(now.getFullYear()));
   qs.set("month", params.month || String(now.getMonth() + 1).padStart(2, "0"));
   if (params.vehicle) qs.set("vehicle_id", params.vehicle);
-  qs.set("limit", "50000");
+  qs.set("limit", "300000");
 
   const result = await fetchAPI<BackendResponse>(
     `/vehicles/fretadao/heatmap?${qs.toString()}`
